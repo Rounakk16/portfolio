@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #ca8a04;
+    --accent-soft: #fef8e7;
+    --emphasis: #b91c1c;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #fbfaf6;
+    color: #1a1a16;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fbfaf6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    position: relative;
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+  }
+
+  .link-underline {
+    background-image: linear-gradient(var(--emphasis), var(--emphasis));
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease;
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1.5px;
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .emphasis-text {
+    color: var(--emphasis);
+  }
+
+  .accent-bg {
+    background-color: var(--accent);
+  }
+
+  .emphasis-bg {
+    background-color: var(--emphasis);
+  }
+
+  .accent-border {
+    border-color: var(--accent);
+  }
+}
